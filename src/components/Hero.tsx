@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowDown, MapPin, Mail } from "lucide-react";
 import { portfolioData } from "../data/portfolio";
+import { TitleRotator } from "./TitleRotater";
 
 const Hero: React.FC = () => {
   const scrollToAbout = () => {
@@ -36,9 +37,7 @@ const Hero: React.FC = () => {
                   </span>
                 ))}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
-                {portfolioData.personal.title}
-              </p>
+              <TitleRotator titles={portfolioData.personal.title} />
               <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
                 {portfolioData.personal.tagline}
               </p>

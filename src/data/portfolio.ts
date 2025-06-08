@@ -1,17 +1,32 @@
+const getTotalExperience = () => {
+  const startDate = new Date("2022-04-22");
+  const now = new Date();
+  const diffInYears =
+    (now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+  const roundedYears = Math.floor(diffInYears);
+  return `${roundedYears || 3}+`;
+};
+
 export const portfolioData = {
   personal: {
     name: "Veer Prakash",
-    title: "Software Engineer & Graphic Designer",
+    title: [
+      "Software Engineer",
+      "Graphic Designer",
+      "Mobile App Developer",
+      "AI Enthusiast",
+    ],
     tagline: "Crafting slick UIs & solid backends that blend design and tech.",
     image: "/images/Veer-Headshot.png",
     email: "veer.prakashwork@gmail.com",
     location: "Bangalore, India",
   },
   about: {
+    totalExperience: getTotalExperience(),
     description:
       "Passionate software engineer and graphic designer with 3+ years of experience creating innovative digital solutions, building scalable web applications and mobile apps, crafting beautiful user interfaces, and contributing to impactful projects, new technologies, and open-source.",
     highlights: [
-      "3+ years in software development",
+      `${getTotalExperience()} years in software development`,
       "Skilled in modern web and mobile app development technologies",
       "Currently learning advanced AI and Angular development",
       "UI/UX design enthusiast",

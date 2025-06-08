@@ -59,7 +59,7 @@ const About: React.FC = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">
-                  3+
+                  {portfolioData.about.totalExperience || "3+"}
                 </div>
                 <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">
                   Years Experience
