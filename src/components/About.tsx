@@ -23,7 +23,7 @@ const About: React.FC = () => {
                   Me
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
                 {portfolioData.about.description}
               </p>
             </div>
