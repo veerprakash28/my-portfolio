@@ -20,18 +20,24 @@
 
 /* Grid pattern background - Fixed positioning */
 .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(156, 163, 175, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(156, 163, 175, 0.2) 1px, transparent 1px);
+  background-image: linear-gradient(
+      to right,
+      rgba(100, 116, 139, 0.8) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 1px, transparent 1px);
   background-size: 50px 50px;
   background-attachment: fixed;
   background-position: 0 0;
 }
 
 .dark .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(75, 85, 99, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(75, 85, 99, 0.2) 1px, transparent 1px);
+  background-image: linear-gradient(
+      to right,
+      rgba(75, 85, 99, 0.6) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(75, 85, 99, 0.6) 1px, transparent 1px);
   background-size: 50px 50px;
   background-attachment: fixed;
   background-position: 0 0;
@@ -99,16 +105,19 @@ html {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* Loading animations */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -138,14 +147,20 @@ html {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .bg-grid-pattern {
-    background-image: 
-      linear-gradient(to right, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5) 1px,
+        transparent 1px
+      ),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
   }
-  
+
   .dark .bg-grid-pattern {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.5) 1px,
+        transparent 1px
+      ),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
   }
 }
@@ -157,11 +172,11 @@ html {
   .animate-bounce {
     animation: none;
   }
-  
+
   * {
     transition-duration: 0.01ms !important;
   }
-  
+
   .bg-grid-pattern {
     background-attachment: scroll;
   }
@@ -172,7 +187,7 @@ html {
   .bg-grid-pattern {
     display: none;
   }
-  
+
   nav,
   footer {
     display: none;

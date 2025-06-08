@@ -7,18 +7,20 @@ export const useTheme = () => {
   useEffect(() => {
     // Check localStorage and system preference on mount
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
     let shouldBeDark = false;
-    
+
     if (savedTheme) {
       shouldBeDark = savedTheme === "dark";
     } else {
       shouldBeDark = prefersDark;
     }
-    
+
     setIsDark(shouldBeDark);
-    
+
     // Apply theme immediately
     if (shouldBeDark) {
       document.documentElement.classList.add("dark");
@@ -30,7 +32,7 @@ export const useTheme = () => {
   const toggleTheme = () => {
     const newIsDark = !isDark;
     setIsDark(newIsDark);
-    
+
     // Apply theme immediately
     if (newIsDark) {
       document.documentElement.classList.add("dark");

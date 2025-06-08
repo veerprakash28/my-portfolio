@@ -1,18 +1,24 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-import { portfolioData } from '../data/portfolio';
+import React from "react";
+import { ExternalLink, Github } from "lucide-react";
+import { portfolioData } from "../data/portfolio";
 
 const Work: React.FC = () => {
   return (
-    <section id="work" className="py-20 bg-gray-50 dark:bg-gray-800/50 relative overflow-hidden">
+    <section
+      id="work"
+      className="py-20 bg-gray-50 dark:bg-gray-800/50 relative overflow-hidden"
+    >
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Featured
-            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Work</span>
+            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+              {" "}
+              Work
+            </span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             A showcase of my recent projects and creative solutions
@@ -35,7 +41,7 @@ const Work: React.FC = () => {
                   className="w-full h-48 obj  ect-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Overlay buttons */}
                 <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a

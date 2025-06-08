@@ -97,17 +97,17 @@ const Hero: React.FC = () => {
               <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-teal-100 dark:bg-teal-900/20 rounded-full blur-3xl opacity-70"></div>
 
               {/* Main image container */}
-              <div className="relative z-10 w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative z-10 w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img
                   src={portfolioData.personal.image}
                   alt={portfolioData.personal.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-full"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                {/* Optional overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-full"></div>
               </div>
 
-              {/* Floating badge - positioned with higher z-index and better positioning */}
+              {/* Floating badge */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border border-gray-100 dark:border-gray-700 z-20">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
                   Available for work
