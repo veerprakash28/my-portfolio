@@ -8,7 +8,7 @@ import Work from "./components/Work";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
       <main className="relative">
         <Hero />
@@ -19,7 +19,7 @@ function App() {
         <Contact />
       </main>
 
-      <footer className="bg-gray-900 text-white py-8 relative">
+      <footer className="bg-gray-900 dark:bg-black text-white py-8 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center">
             <div className="text-center mb-4 md:mb-0">
