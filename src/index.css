@@ -18,18 +18,23 @@
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-/* Grid pattern background */
+/* Grid pattern background - Fixed positioning */
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(156, 163, 175, 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(156, 163, 175, 0.3) 1px, transparent 1px);
+    linear-gradient(to right, rgba(156, 163, 175, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(156, 163, 175, 0.2) 1px, transparent 1px);
   background-size: 50px 50px;
+  background-attachment: fixed;
+  background-position: 0 0;
 }
 
 .dark .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(75, 85, 99, 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(75, 85, 99, 0.3) 1px, transparent 1px);
+    linear-gradient(to right, rgba(75, 85, 99, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(75, 85, 99, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  background-position: 0 0;
 }
 
 /* Smooth scrolling */
@@ -156,6 +161,10 @@ html {
   * {
     transition-duration: 0.01ms !important;
   }
+  
+  .bg-grid-pattern {
+    background-attachment: scroll;
+  }
 }
 
 /* Print styles */
@@ -167,5 +176,13 @@ html {
   nav,
   footer {
     display: none;
+  }
+}
+
+/* Mobile optimization for grid pattern */
+@media (max-width: 768px) {
+  .bg-grid-pattern {
+    background-attachment: scroll;
+    background-size: 30px 30px;
   }
 }

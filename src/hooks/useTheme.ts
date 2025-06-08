@@ -4,29 +4,28 @@ export const useTheme = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Always start by removing dark class to ensure clean state
-    document.documentElement.classList.remove("dark");
-
+    // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-      setIsDark(true);
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    
+    setIsDark(shouldBeDark);
+    
+    if (shouldBeDark) {
       document.documentElement.classList.add("dark");
     } else {
-      // Ensure we're in light mode
-      setIsDark(false);
       document.documentElement.classList.remove("dark");
-      // Set default theme if none exists
-      if (!savedTheme) {
-        localStorage.setItem("theme", "light");
-      }
+    }
+    
+    // Set default theme if none exists
+    if (!savedTheme) {
+      localStorage.setItem("theme", shouldBeDark ? "dark" : "light");
     }
   }, []);
 
   const toggleTheme = () => {
-    console.log("GETTING CALLED");
     const newIsDark = !isDark;
-    console.log(newIsDark, "DARK");
     setIsDark(newIsDark);
 
     if (newIsDark) {

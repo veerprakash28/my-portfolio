@@ -9,8 +9,6 @@ import Work from "./components/Work";
 function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="fixed inset-0 bg-grid-pattern opacity-5 dark:opacity-10 pointer-events-none"></div>
-
       <Navbar />
       <main className="relative">
         <Hero />
