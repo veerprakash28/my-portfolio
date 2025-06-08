@@ -119,7 +119,13 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => {
+                  if (item.href.startsWith("#")) {
+                    scrollToSection(item.href);
+                  } else {
+                    window.open(item.href, "_blank");
+                  }
+                }}
                 className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
               >
                 {item.name}
