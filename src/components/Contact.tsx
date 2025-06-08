@@ -54,19 +54,19 @@ const Contact: React.FC = () => {
       name: "LinkedIn",
       icon: Linkedin,
       url: portfolioData.social.linkedin,
-      color: "hover:text-blue-600",
+      color: "hover:text-blue-600 dark:hover:text-blue-600",
     },
     {
       name: "Youtube",
       icon: Youtube,
       url: portfolioData.social.youtube,
-      color: "hover:text-red-700",
+      color: "hover:text-red-700 dark:hover:text-red-700",
     },
     {
       name: "Instgram",
       icon: InstagramIcon,
       url: portfolioData.social.instagram,
-      color: "hover:text-pink-500",
+      color: "hover:text-pink-500 dark:hover:text-pink-500",
     },
   ];
 

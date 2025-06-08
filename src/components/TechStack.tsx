@@ -99,57 +99,6 @@ const TechStack: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Skill Level Indicators */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            Proficiency Overview
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Frontend Development", level: 95, color: "blue" },
-              { name: "Backend Development", level: 90, color: "teal" },
-              { name: "Mobile Development", level: 85, color: "orange" },
-              { name: "UI/UX Design", level: 80, color: "purple" },
-            ].map((skill) => (
-              <div key={skill.name} className="text-center space-y-3">
-                <div className="relative w-24 h-24 mx-auto">
-                  <svg
-                    className="w-24 h-24 transform -rotate-90"
-                    viewBox="0 0 36 36"
-                  >
-                    <path
-                      className="text-gray-200 dark:text-gray-700"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                    <path
-                      className={`text-${skill.color}-600`}
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeDasharray={`${skill.level}, 100`}
-                      strokeLinecap="round"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span
-                      className={`text-lg font-bold text-${skill.color}-600`}
-                    >
-                      {skill.level}%
-                    </span>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                  {skill.name}
-                </h4>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

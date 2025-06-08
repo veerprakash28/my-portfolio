@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
-    { name: "Work", href: "#work" },
+    { name: "Projects", href: "#work" },
     { name: "Tech Stack", href: "#tech" },
     { name: "Design", href: "https://in.pinterest.com/prakash_veer28/" },
     { name: "Contact", href: "#contact" },
@@ -45,7 +45,12 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div
+            className="flex-shrink-0 cursor-pointer"
+            onClick={() => {
+              scrollToSection("#hero");
+            }}
+          >
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
               VP
             </span>
@@ -61,7 +66,7 @@ const Navbar: React.FC = () => {
                     if (item.href.startsWith("#")) {
                       scrollToSection(item.href);
                     } else {
-                      window.open(item.href, "_blank"); // opens external link in new tab
+                      window.open(item.href, "_blank");
                     }
                   }}
                   className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"

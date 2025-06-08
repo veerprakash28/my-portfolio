@@ -12,24 +12,23 @@ export const portfolioData = {
     name: "Veer Prakash",
     title: [
       "Software Engineer",
-      "Graphic Designer",
       "Mobile App Developer",
       "AI Enthusiast",
+      "Graphic Designer",
     ],
     tagline: "Crafting slick UIs & solid backends that blend design and tech.",
-    image: "/images/Veer-Headshot.png",
+    image: "/images/headshot-sub.png",
     email: "veer.prakashwork@gmail.com",
     location: "Bangalore, India",
   },
   about: {
     totalExperience: getTotalExperience(),
     description:
-      "Passionate software engineer and graphic designer with 3+ years of experience creating innovative digital solutions, building scalable web applications and mobile apps, crafting beautiful user interfaces, and contributing to impactful projects, new technologies, and open-source.",
+      "Passionate software engineer and graphic designer creating innovative digital solutions, building scalable web applications and mobile apps, crafting beautiful user interfaces, and contributing to impactful projects, new technologies, and open-source.",
     highlights: [
       `${getTotalExperience()} years in software development`,
       "Skilled in modern web and mobile app development technologies",
       "Currently learning advanced AI and Angular development",
-      "UI/UX design enthusiast",
     ],
   },
   experience: [
@@ -38,7 +37,7 @@ export const portfolioData = {
       title: "Software Engineer",
       company: "Shipthis Inc.",
       period: "Sept 2024 - Present",
-      location: "Newark, Delaware",
+      location: "Bangalore, India",
       description:
         "Developing scalable frontend/backend systems with Angular and Python. Building cross-platform mobile apps using Ionic. Working on AI integrations, CI/CD pipelines, and GCP cloud infrastructure.",
       achievements: [
@@ -50,7 +49,7 @@ export const portfolioData = {
     {
       id: 2,
       title: "SDE - Frontend Developer",
-      company: "Fracto (Ruptok Fintech)",
+      company: "Fracto - Ruptok Fintech",
       period: "Jun 2023 - Sept 2024",
       location: "Delhi, India",
       description:
@@ -66,7 +65,7 @@ export const portfolioData = {
       title: "Technical Trainee - SDE",
       company: "Gemini Solutions Pvt Ltd",
       period: "Apr 2022 - Apr 2023",
-      location: "Gurugram, Haryana, India",
+      location: "Gurugram, India",
       description:
         "Full Stack Developer focusing on backend APIs with Node.js and MongoDB. Created reusable React components and optimized job scheduling using AWS SQS and agenda.",
       achievements: [

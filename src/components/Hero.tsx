@@ -10,7 +10,10 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
 

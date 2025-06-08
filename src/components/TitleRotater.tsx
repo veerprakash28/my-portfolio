@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 
-export const TitleRotator = ({ titles }) => {
+interface TitleRotatorProps {
+  titles: string[];
+}
+
+export const TitleRotator: React.FC<TitleRotatorProps> = ({ titles }) => {
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
     const fadeOutDuration = 300;
-    const stayDuration = 2000;
+    const stayDuration = index === 0 ? 3000 : 2000;
 
     const timer = setTimeout(() => {
       setFade(false);

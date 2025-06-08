@@ -47,6 +47,19 @@ const Experience: React.FC = () => {
                 >
                   <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                     <div className="space-y-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                          {exp.title}
+                        </h3>
+                        <p className="text-lg text-teal-600 dark:text-teal-400 font-semibold">
+                          {exp.company}
+                        </p>
+                      </div>
+
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                        {exp.description}
+                      </p>
+
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400 font-medium">
                           <Calendar size={16} />
@@ -57,19 +70,6 @@ const Experience: React.FC = () => {
                           <span>{exp.location}</span>
                         </div>
                       </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                          {exp.title}
-                        </h3>
-                        <p className="text-lg text-teal-600 dark:text-teal-400 font-semibold">
-                          {exp.company}
-                        </p>
-                      </div>
-
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {exp.description}
-                      </p>
 
                       {/* Achievements */}
                       <div className="space-y-2">

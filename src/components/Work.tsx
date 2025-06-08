@@ -115,9 +115,6 @@ const Work: React.FC = () => {
         {/* More Projects CTA */}
         <div className="text-center mt-16">
           <div className="inline-flex flex-col items-center space-y-4">
-            <p className="text-gray-600 dark:text-gray-400">
-              Want to see more of my work?
-            </p>
             <a
               href={portfolioData.social.github}
               target="_blank"
