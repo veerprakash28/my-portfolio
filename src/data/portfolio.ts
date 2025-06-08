@@ -6,7 +6,6 @@ export const portfolioData = {
     image: "/images/Veer-Headshot.png",
     email: "veer.prakashwork@gmail.com",
     location: "Bangalore, India",
-    resumeUrl: "/resume-alex-thompson.pdf",
   },
   about: {
     description:
