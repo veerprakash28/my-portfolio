@@ -154,6 +154,7 @@ export const portfolioData = {
   },
   social: {
     github: "https://github.com/veerprakash28",
+    githubRepo: "https://github.com/veerprakash28?tab=repositories",
     linkedin: "https://linkedin.com/in/veerprakash28",
     youtube: "https://www.youtube.com/@dev-projects-lab",
     instagram: "https://www.instagram.com/art.gallery28",

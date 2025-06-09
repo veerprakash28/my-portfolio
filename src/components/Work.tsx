@@ -30,7 +30,7 @@ const Work: React.FC = () => {
           {portfolioData.projects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:scale-105"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
@@ -116,7 +116,7 @@ const Work: React.FC = () => {
         <div className="text-center mt-16">
           <div className="inline-flex flex-col items-center space-y-4">
             <a
-              href={portfolioData.social.github}
+              href={portfolioData.social.githubRepo}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2 shadow-lg hover:shadow-xl hover:scale-105 transform"

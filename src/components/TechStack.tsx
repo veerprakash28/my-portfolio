@@ -73,7 +73,7 @@ const TechStack: React.FC = () => {
           {techCategories.map((category, categoryIndex) => (
             <div
               key={category.name}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 hover:scale-105 transition-all duration-300"
               style={{ animationDelay: `${categoryIndex * 100}ms` }}
             >
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">

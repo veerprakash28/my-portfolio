@@ -45,7 +45,7 @@ const Experience: React.FC = () => {
                     index % 2 === 0 ? "md:mr-8" : "md:ml-8"
                   }`}
                 >
-                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 transform hover:scale-105">
                     <div className="space-y-4">
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
