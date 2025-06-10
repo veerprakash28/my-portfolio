@@ -1,5 +1,5 @@
+import { ArrowDown, Mail, MapPin } from "lucide-react";
 import React from "react";
-import { ArrowDown, MapPin, Mail } from "lucide-react";
 import { portfolioData } from "../data/portfolio";
 import { TitleRotator } from "./TitleRotater";
 
@@ -29,12 +29,7 @@ const Hero: React.FC = () => {
                 {portfolioData.personal.name.split(" ").map((word, index) => (
                   <span
                     key={index}
-                    className={`block ${
-                      index === 1
-                        ? "bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
-                        : ""
-                    }`}
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    className={`block ${index === 1 ? "shimmer-gradient" : ""}`}
                   >
                     {word}
                   </span>
@@ -63,29 +58,6 @@ const Hero: React.FC = () => {
                 <span>{portfolioData.personal.email}</span>
               </div>
             </div>
-
-            {/* CTA Buttons */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
-              style={{ animationDelay: "500ms" }}
-            >
-              <button
-                onClick={scrollToAbout}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Get to know me
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
-              >
-                Let's work together
-              </button>
-            </div>
           </div>
 
           {/* Image */}
@@ -110,9 +82,16 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border border-gray-100 dark:border-gray-700 z-20">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                  Available for work
+              <div
+                onClick={() =>
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="cursor-hover absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border-2 border-gray-100 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300  dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 z-20 transition-all duration-200 hover:scale-105 "
+              >
+                <p className="text-sm font-semibold whitespace-nowrap">
+                  Let's Connect
                 </p>
               </div>
             </div>
