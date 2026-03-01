@@ -32,44 +32,73 @@ const Experience: React.FC = () => {
             {portfolioData.experience.map((exp, index) => (
               <div
                 key={exp.id}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } flex-col md:flex-row`}
+                className={`relative flex items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  } flex-col md:flex-row`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-blue-600 rounded-full z-10"></div>
 
                 {/* Content card */}
                 <div
-                  className={`w-full md:w-5/12 ml-20 md:ml-0 ${
-                    index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                  }`}
+                  className={`w-full md:w-5/12 ml-20 md:ml-0 ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"
+                    }`}
                 >
                   <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 transform hover:scale-105">
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                          {exp.title}
-                        </h3>
-                        <p className="text-lg text-teal-600 dark:text-teal-400 font-semibold">
+                        <p className="text-lg text-teal-600 dark:text-teal-400 font-bold mb-2">
                           {exp.company}
                         </p>
+
+                        {exp.roles ? (
+                          <div className="space-y-6 mt-4 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-gray-200 dark:before:bg-gray-700">
+                            {exp.roles.map((role: any, roleIndex: number) => (
+                              <div key={roleIndex} className="relative pl-6">
+                                <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-500 bg-white dark:bg-gray-800 z-10"></div>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+                                  {role.title}
+                                </h3>
+                                <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium mt-1 mb-2">
+                                  <Calendar size={12} />
+                                  <span>{role.period}</span>
+                                </div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                                  {role.description}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                              {exp.title}
+                            </h3>
+                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify mb-4">
+                              {exp.description}
+                            </p>
+                          </>
+                        )}
                       </div>
 
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-                        {exp.description}
-                      </p>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400 font-medium">
-                          <Calendar size={16} />
-                          <span>{exp.period}</span>
+                      {!exp.roles && (
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                            <Calendar size={16} />
+                            <span>{exp.period}</span>
+                          </div>
+                          <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                            <MapPin size={14} />
+                            <span>{exp.location}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                      )}
+
+                      {exp.roles && (
+                        <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-700 pt-4">
                           <MapPin size={14} />
                           <span>{exp.location}</span>
                         </div>
-                      </div>
+                      )}
 
                       {/* Achievements */}
                       <div className="space-y-2">

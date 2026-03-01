@@ -12,12 +12,12 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-[85vh] flex items-center justify-center relative overflow-hidden"
     >
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8 lg:order-1 order-2">
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
                     .querySelector("#contact")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="cursor-hover absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border-2 border-gray-100 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300  dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 z-20 transition-all duration-200 hover:scale-105 "
+                className="cursor-hover absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border-2 border-gray-100 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 z-20 transition-all duration-200 hover:scale-105"
               >
                 <p className="text-sm font-semibold whitespace-nowrap">
                   Let's Connect
@@ -97,18 +97,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <button
-        onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <ArrowDown
-          className="text-gray-400 dark:text-gray-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-          size={24}
-        />
-      </button>
+        {/* Scroll indicator — inside the content flow now */}
+        <div className="flex justify-center mt-12">
+          <button onClick={scrollToAbout} className="animate-bounce">
+            <ArrowDown
+              className="text-gray-400 dark:text-gray-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              size={24}
+            />
+          </button>
+        </div>
+      </div>
     </section>
   );
 };

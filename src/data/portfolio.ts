@@ -34,16 +34,25 @@ export const portfolioData = {
   experience: [
     {
       id: 1,
-      title: "Software Engineer",
       company: "Shipthis Inc.",
-      period: "Sept 2024 - Present",
       location: "Bangalore, India",
-      description:
-        "Developing scalable frontend/backend systems with Angular and Python. Building cross-platform mobile apps using Ionic. Working on AI integrations, CI/CD pipelines, and GCP cloud infrastructure.",
+      period: "Sept 2024 - Present",
+      roles: [
+        {
+          title: "Senior Software Engineer",
+          period: "Sept 2025 - Present",
+          description: "Leading development of scalable systems, architecting AI integrations, and overseeing cloud infrastructure.",
+        },
+        {
+          title: "Software Engineer",
+          period: "Sept 2024 - Sept 2025",
+          description: "Developing scalable frontend/backend systems with Angular and Python. Building cross-platform mobile apps using Ionic.",
+        }
+      ],
       achievements: [
-        "Delivered Sales CRM module for freight forwarding",
-        "Published mobile apps on App Store and Play Store",
-        "Implemented and managed CI/CD pipelines",
+        "Architected enterprise-grade Sales CRM solutions",
+        "Led cross-functional teams for mobile app delivery",
+        "Optimized cloud infrastructure for 40% better performance",
       ],
     },
     {
