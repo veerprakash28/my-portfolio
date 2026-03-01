@@ -1,5 +1,7 @@
+import { useState } from "react";
 import About from "./components/About";
 import BrowserChrome from "./components/BrowserChrome";
+import BootScreen from "./components/BootScreen";
 import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
 import Experience from "./components/Experience";
@@ -8,6 +10,16 @@ import TechStack from "./components/TechStack";
 import Work from "./components/Work";
 
 function App() {
+  const [isBooted, setIsBooted] = useState(false);
+
+  const handleBootComplete = () => {
+    setIsBooted(true);
+  };
+
+  if (!isBooted) {
+    return <BootScreen onComplete={handleBootComplete} />;
+  }
+
   return (
     <>
       <CustomCursor />

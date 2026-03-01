@@ -74,6 +74,16 @@ const BrowserChrome: React.FC<BrowserChromeProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    // Track native fullscreen changes
+    React.useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    }, []);
 
     // Trigger loading bar on section change
     React.useEffect(() => {
@@ -126,10 +136,17 @@ const BrowserChrome: React.FC<BrowserChromeProps> = ({ children }) => {
     const fullUrl = `${displayHostname}${currentPath ? "/" + currentPath : ""}`;
 
     return (
-        <div className="browser-desktop min-h-screen flex items-center justify-center p-2 sm:p-4 md:p-6">
+        <div className={`browser-desktop min-h-screen flex items-center justify-center ${isFullscreen ? 'p-0 is-fullscreen' : 'p-2 sm:p-4 md:p-6'}`}>
+            {/* Moving Background Shimmer - Hidden in Fullscreen */}
+            {!isFullscreen && <div className="browser-shimmer" />}
+
             {/* Browser Window */}
             <div
-                className={`browser-window w-full max-w-[1800px] h-[calc(100vh-16px)] sm:h-[calc(100vh-32px)] md:h-[calc(100vh-48px)] flex flex-col rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-700/50`}
+                className={`browser-window w-full flex flex-col overflow-hidden shadow-2xl transition-all duration-300
+                    ${isFullscreen
+                        ? 'h-screen max-w-none rounded-none border-none'
+                        : 'max-w-[1800px] h-[calc(100vh-16px)] sm:h-[calc(100vh-32px)] md:h-[calc(100vh-48px)] rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-gray-700/50'
+                    }`}
             >
                 {/* ===== TITLE BAR ===== */}
                 <div className="browser-titlebar flex items-center justify-between px-3 sm:px-4 py-2 bg-gray-100/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 flex-shrink-0">

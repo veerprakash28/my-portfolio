@@ -8,48 +8,136 @@
 
 /* Desktop wallpaper background */
 .browser-desktop {
-  background: linear-gradient(135deg,
-      #667eea 0%,
-      #764ba2 25%,
-      #f093fb 50%,
-      #4facfe 75%,
-      #00f2fe 100%);
-  background-size: 400% 400%;
-  animation: wallpaper-shift 20s ease infinite;
+  background-color: #e2e8f0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #cbd5e1 0%, #e2e8f0 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browser-desktop.is-fullscreen {
+  background-color: white;
+  background-image: none;
+}
+
+.dark .browser-desktop.is-fullscreen {
+  background-color: #0f172a;
+}
+
+.browser-desktop.is-fullscreen::before,
+.browser-desktop.is-fullscreen::after {
+  display: none;
 }
 
 .dark .browser-desktop {
-  background: linear-gradient(135deg,
-      #0c0c1d 0%,
-      #1a1a2e 25%,
-      #16213e 50%,
-      #0f3460 75%,
-      #0c0c1d 100%);
-  background-size: 400% 400%;
-  animation: wallpaper-shift 25s ease infinite;
+  background-color: #020617;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #172554 0%, #020617 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
 }
 
-@keyframes wallpaper-shift {
+.browser-desktop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
 
-  0%,
-  100% {
-    background-position: 0% 50%;
+.dark .browser-desktop::before {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 70%);
+}
+
+.browser-desktop::after {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: perspective(1000px) rotateX(60deg) translateY(0);
+  animation: grid-move 40s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dark .browser-desktop::after {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+}
+
+/* Background Shimmer Effect - Optimized for Visibility */
+.browser-shimmer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0) 25%,
+      rgba(59, 130, 246, 0.1) 42%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(59, 130, 246, 0.1) 58%,
+      rgba(59, 130, 246, 0) 75%,
+      transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+  animation: bg-shimmer 8s infinite linear;
+}
+
+.dark .browser-shimmer {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0) 30%,
+      rgba(59, 130, 246, 0.1) 45%,
+      rgba(59, 130, 246, 0.25) 50%,
+      rgba(59, 130, 246, 0.1) 55%,
+      rgba(59, 130, 246, 0) 70%,
+      transparent 100%);
+}
+
+@keyframes bg-shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-10deg);
   }
 
-  50% {
-    background-position: 100% 50%;
+  100% {
+    transform: translateX(100%) skewX(-10deg);
+  }
+}
+
+@keyframes grid-move {
+  from {
+    transform: perspective(1000px) rotateX(60deg) translateY(0);
+  }
+
+  to {
+    transform: perspective(1000px) rotateX(60deg) translateY(80px);
   }
 }
 
 /* Browser window frame */
 .browser-window {
+  position: relative;
+  z-index: 10;
   background: white;
   box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.35),
     0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .dark .browser-window {
-  background: #111827;
+  background: #0f172a;
   box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(255, 255, 255, 0.05);
 }
@@ -104,6 +192,58 @@
     transform: translateX(100%);
     opacity: 0;
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cursor-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-in {
+  animation-duration: 250ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.zoom-in-95 {
+  animation-name: zoom-in;
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
 }
 
 /* Scrollbar hide for tab bar */
