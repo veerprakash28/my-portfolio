@@ -93,8 +93,14 @@ const BrowserChrome: React.FC<BrowserChromeProps> = ({ children }) => {
     }, [activeSection]);
 
     const scrollToSection = (href: string) => {
-        const el = document.querySelector(href);
-        el?.scrollIntoView({ behavior: "smooth" });
+        const el = document.querySelector(href) as HTMLElement;
+        const scroller = contentRef.current;
+        if (el && scroller) {
+            scroller.scrollTo({
+                top: el.offsetTop,
+                behavior: "smooth"
+            });
+        }
         setIsMobileMenuOpen(false);
     };
 
@@ -346,7 +352,7 @@ const BrowserChrome: React.FC<BrowserChromeProps> = ({ children }) => {
                 {/* ===== CONTENT VIEWPORT ===== */}
                 <div
                     ref={contentRef}
-                    className="browser-content flex-1 overflow-y-auto overflow-x-hidden bg-white dark:bg-gray-900 scroll-smooth"
+                    className="browser-content relative flex-1 overflow-y-auto overflow-x-hidden bg-white dark:bg-gray-900"
                 >
                     {children}
                 </div>

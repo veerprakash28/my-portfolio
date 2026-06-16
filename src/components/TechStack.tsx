@@ -50,7 +50,7 @@ const TechStack: React.FC = () => {
   };
 
   return (
-    <section id="tech" className="py-20 relative overflow-hidden">
+    <section id="tech-section" className="py-20 relative overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
 

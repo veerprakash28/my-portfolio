@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
 
   return (
     <section
-      id="contact"
+      id="contact-section"
       className="py-20 bg-gray-50 dark:bg-gray-800/50 relative overflow-hidden"
     >
       {/* Grid Background */}

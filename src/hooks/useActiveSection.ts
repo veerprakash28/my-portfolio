@@ -6,36 +6,66 @@ export const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const root = document.querySelector(".browser-content");
-    const observers: IntersectionObserver[] = [];
+    let active = true;
+    let root: Element | null = null;
+    let handleScroll: (() => void) | null = null;
 
-    SECTION_IDS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el || !root) return;
+    const init = () => {
+      root = document.querySelector(".browser-content");
+      if (!root) {
+        if (active) setTimeout(init, 50);
+        return;
+      }
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(id);
-            }
-          });
-        },
-        {
-          root,
-          threshold: 0.2, // Lowered threshold for better detection
-          rootMargin: "-20% 0px -20% 0px", // Balanced margins
+      handleScroll = () => {
+        if (!root) return;
+        const S = root.scrollTop;
+        const maxScroll = root.scrollHeight - root.clientHeight;
+
+        if (S <= 20) {
+          setActiveSection("hero");
+          return;
         }
-      );
+        if (S >= maxScroll - 50) {
+          setActiveSection("contact");
+          return;
+        }
 
-      observer.observe(el);
-      observers.push(observer);
-    });
+        const offsets = SECTION_IDS.map((id) => {
+          const el = document.getElementById(id);
+          return { id, offset: el ? el.offsetTop : 0 };
+        });
+
+        // Find the last section anchor that the scroll has passed
+        // Use a small look-ahead buffer so it activates slightly before the anchor
+        const ACTIVATION_BUFFER = root.clientHeight * 0.3;
+        let activeId = "hero";
+        for (let i = 0; i < offsets.length; i++) {
+          if (S + ACTIVATION_BUFFER >= offsets[i].offset) {
+            activeId = offsets[i].id;
+          }
+        }
+        setActiveSection(activeId);
+      };
+
+      root.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", handleScroll);
+      handleScroll();
+    };
+
+    init();
 
     return () => {
-      observers.forEach((obs) => obs.disconnect());
+      active = false;
+      if (root && handleScroll) {
+        root.removeEventListener("scroll", handleScroll);
+      }
+      if (handleScroll) {
+        window.removeEventListener("resize", handleScroll);
+      }
     };
   }, []);
 
   return activeSection;
 };
+

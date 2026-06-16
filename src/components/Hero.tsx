@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
-      id="hero"
+      id="hero-section"
       className="min-h-[85vh] flex items-center justify-center relative overflow-hidden"
     >
       {/* Grid Background */}

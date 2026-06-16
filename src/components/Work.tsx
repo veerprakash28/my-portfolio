@@ -5,7 +5,7 @@ import { portfolioData } from "../data/portfolio";
 const Work: React.FC = () => {
   return (
     <section
-      id="work"
+      id="work-section"
       className="py-20 bg-gray-50 dark:bg-gray-800/50 relative overflow-hidden"
     >
       {/* Grid Background */}
