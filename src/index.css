@@ -351,6 +351,32 @@ html {
   background: rgba(59, 130, 246, 0.5);
 }
 
+/* Achievements custom scrollbar */
+.achievements-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.achievements-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.achievements-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.35);
+  border-radius: 2px;
+}
+
+.achievements-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.55);
+}
+
+.dark .achievements-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.25);
+}
+
+.dark .achievements-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.45);
+}
+
 /* Gradient text selection */
 ::selection {
   background: rgba(59, 130, 246, 0.2);

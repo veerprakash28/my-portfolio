@@ -128,6 +128,7 @@ export const StorytellingCanvas: React.FC = () => {
   const [scrollerEl, setScrollerEl] = useState<Element | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+
   // Form State
   const [formData, setFormData] = useState({
     name: "",
@@ -777,8 +778,8 @@ export const StorytellingCanvas: React.FC = () => {
                   className="w-[85vw] max-w-[450px] md:w-[500px] flex-shrink-0"
                 >
                   <div className="h-[52vh] min-h-[420px] max-h-[480px] flex flex-col justify-between p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                    <div>
-                      <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-3 mb-4 font-mono text-xs select-none">
+                    <div className="flex-1 min-h-0 overflow-y-auto achievements-scrollbar pr-1 mb-2">
+                      <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2 mb-2.5 font-mono text-xs select-none">
                         <span className="text-gray-400 dark:text-gray-555 font-bold uppercase tracking-wider">
                           {getCompanyHeaderName(exp.company)}
                         </span>
@@ -792,7 +793,7 @@ export const StorytellingCanvas: React.FC = () => {
                       </h4>
 
                       {/* Metadata strip */}
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 items-center mt-3 text-xs font-mono text-gray-500 dark:text-gray-400">
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 items-center mt-2 text-xs font-mono text-gray-500 dark:text-gray-400">
                         <div className="flex items-center gap-1.5">
                           <Calendar size={12} />
                           <span>{exp.period}</span>
@@ -805,14 +806,14 @@ export const StorytellingCanvas: React.FC = () => {
 
                       {/* Single role overview */}
                       {!exp.roles && exp.description && (
-                        <p className="text-sm text-gray-650 dark:text-gray-300 leading-relaxed mt-4">
+                        <p className="text-sm text-gray-650 dark:text-gray-300 leading-relaxed mt-2.5">
                           {exp.description}
                         </p>
                       )}
 
                       {/* Nested multi-roles */}
                       {exp.roles && (
-                        <div className="mt-4 space-y-3.5 pl-3.5 border-l border-gray-200 dark:border-gray-800 ml-1">
+                        <div className="mt-2.5 space-y-2 pl-3.5 border-l border-gray-200 dark:border-gray-800 ml-1">
                           {exp.roles.map((role: { title: string; period: string; description: string }, rIdx: number) => (
                             <div key={rIdx} className="relative">
                               <div className="absolute -left-[18.5px] top-1.5 w-1.5 h-1.5 rounded-full bg-blue-500"></div>
@@ -828,18 +829,22 @@ export const StorytellingCanvas: React.FC = () => {
                     </div>
 
                     {/* Achievements items */}
-                    <div className="border-t border-gray-100 dark:border-gray-800/80 pt-3.5 mt-3.5 overflow-y-auto max-h-[140px] scrollbar-none relative z-10">
-                      <div className="space-y-2.5">
-                        {exp.achievements.map((ach, aIdx) => (
-                          <div key={aIdx} className="flex items-start gap-2.5">
-                            <span className="text-[9px] font-mono font-bold text-gray-400 dark:text-gray-500 mt-0.5 select-none">
-                              {`[0${aIdx + 1}]`}
-                            </span>
-                            <span className="text-xs text-gray-650 dark:text-gray-300 leading-relaxed">
-                              {ach}
-                            </span>
-                          </div>
-                        ))}
+                    <div className="border-t border-gray-100 dark:border-gray-800/80 pt-3 mt-3 h-[160px] relative z-10 flex-shrink-0">
+                      <div className="relative h-full">
+                        <div className="space-y-2 pr-2 achievements-scrollbar overflow-y-auto h-full pb-4">
+                          {exp.achievements.map((ach, aIdx) => (
+                            <div key={aIdx} className="flex items-start gap-2.5">
+                              <span className="text-[9px] font-mono font-bold text-gray-400 dark:text-gray-555 mt-0.5 select-none">
+                                {`[0${aIdx + 1}]`}
+                              </span>
+                              <span className="text-xs text-gray-650 dark:text-gray-300 leading-relaxed">
+                                {ach}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                        {/* Bottom fade indicator for scrollable content */}
+                        <div className="absolute bottom-0 left-0 right-0 h-5 bg-gradient-to-t from-white dark:from-gray-900 to-transparent pointer-events-none z-10"></div>
                       </div>
                     </div>
                   </div>

@@ -50,9 +50,12 @@ export const portfolioData = {
         }
       ],
       achievements: [
-        "Architected enterprise-grade Sales CRM solutions",
-        "Led cross-functional teams for mobile app delivery",
-        "Optimized cloud infrastructure for 40% better performance",
+        "Built Sales CRM end-to-end — full-stack architecture, system design & delivery",
+        "Engineered Email Campaign system with scheduling, tracking & template engine",
+        "Developed Icegate Customs module for automated customs data handling",
+        "Integrated WhatsApp Business API into core platform for real-time messaging",
+        "Built cross-platform mobile apps with Ionic covering core freight workflows",
+        "Led cloud infra optimisation for 40% performance improvement",
       ],
     },
     {
@@ -78,9 +81,10 @@ export const portfolioData = {
       description:
         "Full Stack Developer focusing on backend APIs with Node.js and MongoDB. Created reusable React components and optimized job scheduling using AWS SQS and agenda.",
       achievements: [
-        "Improved API reliability by 30%",
-        "Cut frontend dev time by 40% with reusable components",
-        "Enhanced job processing efficiency with AWS SQS and agenda",
+        "Designed & built Helpdesk Portal — full backend architecture, ticketing workflows & operations",
+        "Improved API reliability by 30% through robust service layer design",
+        "Cut frontend dev time by 40% with reusable React components",
+        "Enhanced job processing efficiency with AWS SQS & Agenda",
       ],
     },
   ],
