@@ -741,23 +741,21 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 3: EXPERIENCE (Horizontal timeline in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex items-center px-12 md:px-24">
-            <div className="flex items-center gap-16">
+          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
-              {/* Intro panel */}
-              <div className="w-24 md:w-32 h-[350px] flex-shrink-0 relative select-none">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 transform -rotate-90 origin-center whitespace-nowrap">
-                  <h2 className="text-4xl md:text-5xl font-bold font-sans text-gray-900 dark:text-white leading-none">
-                    My<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Journey</span>
-                  </h2>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-sans leading-none">
-                    A timeline of my professional growth and key achievements
-                  </p>
-                  <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
-                </div>
-              </div>
+            {/* Section header — horizontal, at the top */}
+            <div className="flex flex-col gap-1.5 select-none">
+              <h2 className="text-3xl md:text-4xl font-bold font-sans text-gray-900 dark:text-white leading-none">
+                My<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Journey</span>
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 font-sans">
+                A timeline of my professional growth and key achievements
+              </p>
+              <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mt-1"></div>
+            </div>
 
-              {/* Experience cards */}
+            {/* Experience cards row */}
+            <div className="flex items-stretch gap-6">
               {sortedExperience.map((exp) => (
                 <div
                   key={exp.id}
@@ -864,23 +862,21 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 4: PROJECTS (Horizontal slider in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex items-center px-12 md:px-24">
-            <div className="flex items-center gap-16">
+          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
-              {/* Intro panel */}
-              <div className="w-24 md:w-32 h-[350px] flex-shrink-0 relative select-none">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 transform -rotate-90 origin-center whitespace-nowrap">
-                  <h2 className="text-4xl md:text-5xl font-bold font-sans text-gray-900 dark:text-white leading-none">
-                    Featured<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Work</span>
-                  </h2>
-                  <p className="text-xs text-gray-550 dark:text-gray-400 font-sans leading-none">
-                    A showcase of my recent projects and creative solutions.
-                  </p>
-                  <div className="w-12 h-1 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full"></div>
-                </div>
-              </div>
+            {/* Section header — horizontal, at the top */}
+            <div className="flex flex-col gap-1.5 select-none">
+              <h2 className="text-3xl md:text-4xl font-bold font-sans text-gray-900 dark:text-white leading-none">
+                Featured<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Work</span>
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 font-sans">
+                A showcase of my recent projects and creative solutions.
+              </p>
+              <div className="w-10 h-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full mt-1"></div>
+            </div>
 
-              {/* Project cards */}
+            {/* Project cards row */}
+            <div className="flex items-stretch gap-6">
               {portfolioData.projects.map((project) => (
                 <div
                   key={project.id}
@@ -1000,24 +996,21 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 5: TECH STACK (Horizontal wrap in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex items-center px-12 md:px-24">
-            <div className="flex items-center gap-16">
+          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
-              {/* Intro panel */}
-              <div className="w-24 md:w-32 h-[350px] flex-shrink-0 relative select-none">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 transform -rotate-90 origin-center whitespace-nowrap">
-                  <h2 className="text-4xl md:text-5xl font-bold font-sans text-gray-900 dark:text-white leading-none">
-                    Tech<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Stack</span>
-                  </h2>
-                  <p className="text-xs text-gray-550 dark:text-gray-400 font-sans leading-none">
-                    Technologies and tools I use to bring ideas to life.
-                  </p>
-                  <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
-                </div>
-              </div>
+            {/* Section header — horizontal, at the top */}
+            <div className="flex flex-col gap-1.5 select-none">
+              <h2 className="text-3xl md:text-4xl font-bold font-sans text-gray-900 dark:text-white leading-none">
+                Tech<span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Stack</span>
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 font-sans">
+                Technologies and tools I use to bring ideas to life.
+              </p>
+              <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mt-1"></div>
+            </div>
 
-              {/* Horizontal 2-Row Wrapped Categories Grid */}
-              <div className="flex flex-col flex-wrap gap-6 h-[480px] w-max justify-center items-start">
+            {/* Horizontal 2-Row Wrapped Categories Grid */}
+            <div className="flex flex-col flex-wrap gap-5 h-[380px] w-max justify-center items-start">
                 {techCategories.map((category) => (
                   <div
                     key={category.name}
@@ -1040,7 +1033,6 @@ export const StorytellingCanvas: React.FC = () => {
                 ))}
               </div>
 
-            </div>
           </div>
 
           {/* ---------------- SECTION 6: CONTACT & FOOTER ---------------- */}
