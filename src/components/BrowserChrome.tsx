@@ -93,14 +93,33 @@ const BrowserChrome: React.FC<BrowserChromeProps> = ({ children }) => {
     }, [activeSection]);
 
     const scrollToSection = (href: string) => {
-        const el = document.querySelector(href) as HTMLElement;
+        const sectionName = href.replace('#', '');
         const scroller = contentRef.current;
-        if (el && scroller) {
-            scroller.scrollTo({
-                top: el.offsetTop,
-                behavior: "smooth"
-            });
+        if (!scroller) return;
+
+        const isDesktop = window.innerWidth >= 768;
+        const track = scroller.querySelector('.horizontal-track') as HTMLElement | null;
+
+        if (isDesktop && track) {
+            // Desktop: find section by data-section attr, compute scrollTop from offsetLeft
+            const sectionEl = track.querySelector(`[data-section="${sectionName}"]`) as HTMLElement | null;
+            if (sectionEl) {
+                const sectionLeft = sectionEl.offsetLeft;
+                const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+                const trackScrollable = track.scrollWidth - scroller.clientWidth;
+                const scrollTop = trackScrollable > 0
+                    ? (sectionLeft / trackScrollable) * maxScroll
+                    : 0;
+                scroller.scrollTo({ top: scrollTop, behavior: 'smooth' });
+            }
+        } else {
+            // Mobile: use vertical offsetTop on the stacked section elements
+            const el = scroller.querySelector(`#${sectionName}`) as HTMLElement | null;
+            if (el) {
+                scroller.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+            }
         }
+
         setIsMobileMenuOpen(false);
     };
 

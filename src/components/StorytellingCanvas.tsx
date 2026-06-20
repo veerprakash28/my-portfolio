@@ -579,6 +579,7 @@ export const StorytellingCanvas: React.FC = () => {
 
           {/* ---------------- SECTION 1: HERO ---------------- */}
           <div
+            data-section="hero"
             className="h-full flex-shrink-0 flex items-center justify-center relative"
             style={{ width: viewportWidth }}
           >
@@ -640,8 +641,21 @@ export const StorytellingCanvas: React.FC = () => {
                   {/* Floating badge */}
                   <div
                     onClick={() => {
-                      const el = document.querySelector("#contact");
-                      el?.scrollIntoView({ behavior: "smooth" });
+                      const scroller = document.querySelector('.browser-content') as HTMLElement | null;
+                      const track = scroller?.querySelector('.horizontal-track') as HTMLElement | null;
+                      const isDesktop = window.innerWidth >= 768;
+                      if (isDesktop && scroller && track) {
+                        const sectionEl = track.querySelector('[data-section="contact"]') as HTMLElement | null;
+                        if (sectionEl) {
+                          const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+                          const trackScrollable = track.scrollWidth - scroller.clientWidth;
+                          const scrollTop = trackScrollable > 0 ? (sectionEl.offsetLeft / trackScrollable) * maxScroll : 0;
+                          scroller.scrollTo({ top: scrollTop, behavior: 'smooth' });
+                        }
+                      } else {
+                        const el = document.querySelector('#contact') as HTMLElement | null;
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="cursor-pointer absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-xl border-2 border-gray-100 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 z-20 transition-all duration-200 hover:scale-105"
                   >
@@ -656,6 +670,7 @@ export const StorytellingCanvas: React.FC = () => {
 
           {/* ---------------- SECTION 2: ABOUT ME ---------------- */}
           <div
+            data-section="about"
             className="h-full flex-shrink-0 flex items-center justify-center relative px-12 md:px-24"
             style={{ width: viewportWidth }}
           >
@@ -741,7 +756,7 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 3: EXPERIENCE (Horizontal timeline in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
+          <div data-section="experience" className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
             {/* Section header — horizontal, at the top */}
             <div className="flex flex-col gap-1.5 select-none">
@@ -862,7 +877,7 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 4: PROJECTS (Horizontal slider in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
+          <div data-section="work" className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
             {/* Section header — horizontal, at the top */}
             <div className="flex flex-col gap-1.5 select-none">
@@ -996,7 +1011,7 @@ export const StorytellingCanvas: React.FC = () => {
           </div>
 
           {/* ---------------- SECTION 5: TECH STACK (Horizontal wrap in main track) ---------------- */}
-          <div className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
+          <div data-section="tech" className="h-full flex-shrink-0 flex flex-col justify-center px-12 md:px-24 gap-8">
 
             {/* Section header — horizontal, at the top */}
             <div className="flex flex-col gap-1.5 select-none">
@@ -1037,6 +1052,7 @@ export const StorytellingCanvas: React.FC = () => {
 
           {/* ---------------- SECTION 6: CONTACT & FOOTER ---------------- */}
           <div
+            data-section="contact"
             className="h-full flex-shrink-0 flex items-center justify-center relative px-12 md:px-24"
             style={{ width: viewportWidth }}
           >
